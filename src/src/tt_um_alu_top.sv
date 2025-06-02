@@ -1,9 +1,9 @@
 module tt_um_alu_top (
-    input  logic [7:0]  ui_in,    // Se usará como sw (entrada A)
-    input  logic [7:0]  uio_in,   // Se usará para sw2 y parte extra (adaptar abajo)
-    output logic [7:0]  uo_out,   // Salida principal (leds)
-    output logic [7:0]  uio_out,  // Salidas extra (puede quedar en cero si no usas)
-    output logic [7:0]  uio_oe,   // Control de triestado (poner en cero si no se usa)
+    input  logic [7:0]  ui_in,
+    input  logic [7:0]  uio_in,
+    output logic [7:0]  uo_out,
+    output logic [7:0]  uio_out,
+    output logic [7:0]  uio_oe,
     input  logic        ena,
     input  logic        clk,
     input  logic        rst_n
