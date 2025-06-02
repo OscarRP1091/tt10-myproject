@@ -1,3 +1,25 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 29.05.2025 22:31:32
+// Design Name: 
+// Module Name: DisplayController
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
 module DisplayController(
     input  logic       clk,
     input  logic [7:0] value,
@@ -9,11 +31,13 @@ module DisplayController(
     logic [15:0] counter;
     logic       sel_digit;
 
+    // División de frecuencia para multiplexar el display
     always_ff @(posedge clk) begin
         counter <= counter + 1;
         sel_digit <= counter[15];  // alterna entre 2 dígitos
     end
 
+    // Selección de nibble a mostrar
     always_comb begin
         if (sel_digit) begin
             digit = value[7:4];
@@ -24,6 +48,7 @@ module DisplayController(
         end
     end
 
+    // Decodificador binario a 7 segmentos (hexadecimal)
     always_comb begin
         case (digit)
             4'h0: seg = 7'b1000000;

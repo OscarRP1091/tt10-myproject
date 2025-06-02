@@ -1,3 +1,25 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 29.05.2025 22:12:58
+// Design Name: 
+// Module Name: ALU
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
 module ALU (
     input  logic [7:0] A,
     input  logic [7:0] B,
@@ -7,6 +29,7 @@ module ALU (
     logic [7:0] sum_result;
     logic       sum_carry;
 
+    // Instancia del sumador prefix
     Prefix ADDER (
         .A    (A),
         .B    (B),
@@ -15,6 +38,7 @@ module ALU (
         .Cout (sum_carry)
     );
 
+    // Lógica de la ALU con MUX
     always_comb begin
         unique case (sel)
             3'b000: R = sum_result;                  // Suma
@@ -26,4 +50,4 @@ module ALU (
             default: R = 8'b00000000;
         endcase
     end
-endmodule
+endmodule                
