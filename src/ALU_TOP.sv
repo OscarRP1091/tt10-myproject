@@ -21,6 +21,7 @@
 
 module tt_um_alu_top(
     input  logic       ena,  // Puerto enable obligatorio para Tiny Tapeout
+    input logic rst_n,
     input  logic [7:0] sw,      // Entrada A: sw[7:0]
     input  logic [4:0] sw2,     // Entrada B: sw[12:8]
     input  logic [2:0] sel,     // Selección de operación: sw[15:13]
