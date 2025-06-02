@@ -9,17 +9,13 @@ module tt_um_alu_top (
     input  logic        rst_n
 );
 
-    // Aquí adaptamos las señales originales
-    // ui_in[7:0] será sw
-    // uio_in[4:0] serán sw2 (menos bits para que coincida con 5 bits)
-    // Selección, btnC, etc., pueden venir de bits sobrantes o por simplificar en demo
-    
+    // Adaptación de señales
     logic [7:0] sw = ui_in;
     logic [4:0] sw2 = uio_in[4:0];
-    logic [2:0] sel = uio_in[7:5]; // por ejemplo, los 3 bits restantes para selección
-    logic       btnC = ena;        // usa ena como botón cin
+    logic [2:0] sel = uio_in[7:5];
+    logic       btnC = ena;
     logic       clk_i = clk;
-    
+
     logic [7:0] int_Suma;
     logic       int_Cout;
     logic [7:0] R;
@@ -45,13 +41,19 @@ module tt_um_alu_top (
     DisplayController display (
         .clk   (clk_i),
         .value (R),
-        .seg   (uo_out[6:0]), // Usamos uo_out para los segmentos del display
-        .an    (/* no conectado aquí */) // Podrías mapear si tienes más bits
+        .seg   (uo_out[6:0]),
+        .an    (/* no conectado */)
     );
 
-    // LEDs y salidas
-    assign uo_out[7] = int_Cout;  // LED carry out en bit 7 de uo_out
-    assign uo_out[6:0] = int_Suma[6:0]; // resto leds
+    // LEDs y salida carry
+    assign uo_out[7] = int_Cout;
+    assign uo_out[6:0] = int_Suma[6:0];
+
+    // Otros puertos no usados en 0
+    assign uio_out = 8'b0;
+    assign uio_oe = 8'b0;
+
+endmodule
 
     // Si no usas estas señales, las ponemos a cero
     assign uio_out = 8'b0;
