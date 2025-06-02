@@ -1,20 +1,25 @@
-<!---
+# ALU con Sumador Prefix
 
-This file is used to generate your project datasheet. Please fill in the information below and delete any unused
-sections.
+Este proyecto implementa una ALU en SystemVerilog con seis operaciones:
 
-You can also include images in this folder and reference them in the markdown. Each image must be less than
-512 kb in size, and the combined size of all images must be less than 1 MB.
--->
+- Suma
+- Resta
+- AND
+- OR
+- Shift left
+- Shift right
 
-## How it works
+La ALU opera con dos operandos:
+- **A**: conectado a `sw[7:0]`
+- **B**: conectado a `sw[12:8]` (extendido con ceros a 8 bits)
 
-Explain how your project works
+También incluye un sumador tipo prefix con carry-in controlado por el botón central (`btnC`).
 
-## How to test
+Las salidas se muestran en:
+- **LEDs**: resultado de la suma
+- **LED adicional**: muestra el carry out
+- **Display de 7 segmentos**: muestra el resultado de la ALU
 
-Explain how to use your project
+El módulo principal es `tt_um_oscar_alutop`.
 
-## External hardware
-
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+Diseñado para el entorno Tiny Tapeout.
