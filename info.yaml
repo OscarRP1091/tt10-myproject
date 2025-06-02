@@ -17,7 +17,7 @@ project:
   # Source files must be in ./src and you must list each source file separately, one per line.
   # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
   source_files:
-     - "Prefix.sv"
+    - "Prefix.sv"
     - "ALU.sv"
     - "DisplayController.sv"
     - "ALU_TOP.sv"
@@ -26,7 +26,7 @@ project:
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
- ui[0]: "sel[0]"       # Bit 0 de selección de operación
+  ui[0]: "sel[0]"       # Bit 0 de selección de operación
   ui[1]: "sel[1]"       # Bit 1 de selección
   ui[2]: "sel[2]"       # Bit 2 de selección
   ui[3]: "Cin (carry)"  # Equivalente a btnC
@@ -35,7 +35,7 @@ pinout:
   ui[6]: "A[2]"         # Operando A (bit 2)
   ui[7]: "A[3]"         # Operando A (bit 3)
   # Outputs
-   uo[0]: "Result[0]"
+  uo[0]: "Result[0]"
   uo[1]: "Result[1]"
   uo[2]: "Result[2]"
   uo[3]: "Result[3]"
